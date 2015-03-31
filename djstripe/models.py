@@ -691,9 +691,10 @@ class CurrentSubscription(TimeStampedModel):
         return True
 
 
-class Invoice(StripeObject):
+class Invoice(TimeStampedModel):
     # TODO - needs tests
 
+    stripe_id = models.CharField(max_length=50)
     customer = models.ForeignKey(Customer, related_name="invoices")
     attempted = models.NullBooleanField()
     attempts = models.PositiveIntegerField(null=True)
