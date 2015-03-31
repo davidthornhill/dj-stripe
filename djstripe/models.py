@@ -98,7 +98,7 @@ class Event(StripeObject):
     kind = models.CharField(max_length=250)
     livemode = models.BooleanField(default=False)
     customer = models.ForeignKey("Customer", null=True)
-    webhook_message = JSONField()
+    webhook_message = JSONField(default=dict)
     validated_message = JSONField(null=True)
     valid = models.NullBooleanField(null=True)
     processed = models.BooleanField(default=False)
